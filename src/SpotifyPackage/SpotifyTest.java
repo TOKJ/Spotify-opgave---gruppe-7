@@ -1,0 +1,25 @@
+package SpotifyPackage;
+
+public class SpotifyTest {
+
+
+    //1.	Tilføj ny sang
+
+
+    //2.	Fjern en sang
+
+
+    //3.	Vis alle sang
+
+
+    //4.	 Søg efter en sang
+
+
+    //5.	Rediger en sang
+
+
+    //-	Afslut programmet    -
+
+
+
+}
