@@ -1,7 +1,10 @@
 package SpotifyPackage;
 
 public class SpotifyTest {
-
+    public static void main(String[] args){
+        Spotify songs = new Spotify(false);
+        songs.menu();
+    }
 
     //1.	Tilføj ny sang
 
@@ -18,8 +21,5 @@ public class SpotifyTest {
     //5.	Rediger en sang
 
 
-    //-	Afslut programmet    -
-
-
-
+    //-	Afslut programmet
 }
