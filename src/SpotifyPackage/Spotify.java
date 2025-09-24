@@ -22,6 +22,9 @@ public class Spotify {
             String input = scanner.nextLine();
             //if input == valid option, do valid option
             //maybe change to switch with numerated list?
+            if(freeUser){
+                add();
+            }
             if(input.equalsIgnoreCase("add") || input.equalsIgnoreCase("1")){
                 addSong();
                 continue;
@@ -105,5 +108,8 @@ public class Spotify {
     //-	Afslut programmet
     //increment isDone boolean
     //playsong???
-
+    //print add if freeuser
+    private void add(){
+        System.out.println("AAAAADS!!");
+    }
 }
