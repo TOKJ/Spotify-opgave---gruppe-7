@@ -99,11 +99,12 @@ public class Spotify {
     private void removeSong(){
         System.out.println("Please enter the title of the song you wish to remove.");
         String input = scanner.nextLine();
-        try{
-            songList.removeIf(song -> song.getTitle().equalsIgnoreCase(input));
+        if (songList.removeIf(song -> song.getTitle().equalsIgnoreCase(input))
+        ) {
             System.out.println(input + " has been removed.");
-        }catch (NullPointerException e){
+        }else{
             System.out.println(input + " does not exist.");
+
         }
         }
     //2.	Fjern en sang
