@@ -3,16 +3,47 @@ package SpotifyPackage;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Spotify is a class that contains and modifies an {@link ArrayList} of {@link Song} objects. <br>
+ * Has methods:<br>
+ * {@link #Spotify(boolean)} is the constructor.<br>
+ * {@link #menu()} is the main body of the class, all other methods are run from here. <br>
+ * Has attributes: <br>
+ * {@link #songList} is an {@link ArrayList} that contains {@link Song} objects.<br>
+ * {@link #freeUser} determines whether to use {@link #add()} method in {@link #menu} or not.<br>
+ * {@link #scanner} is an object of the {@link Scanner} class used to get user inputs.
+ */
+
 public class Spotify {
+    /**
+     * songList is an ArrayList of objects of the {@link Song} class.
+     */
     ArrayList<Song> songList = new ArrayList<Song>();
+    /**
+     * freeUser is a boolean that determines add usage.
+     */
     boolean freeUser;
+    /**
+     * scanner is an object of the {@link Scanner} class.
+     */
     Scanner scanner = new Scanner(System.in);
 
+    /**
+     * constructor
+     * @param freeUser determines whether to play adds or not.
+     */
     public Spotify(boolean freeUser){
         this.freeUser = freeUser;
     }
 
-    //THE While loop
+    /**
+     * Main body of the class which allows the user to pick different methods: <br>
+     * {@link #addSong()} to add a song.<br>
+     * {@link #removeSong()} to remove a song.<br>
+     * {@link #showSongList()} to show {@link #songList} using toString overrides.<br>
+     * {@link #search()} to search for a song by title.<br>
+     * or a method to end the program.
+     */
     public void menu(){
         boolean isDone = false;
 
@@ -20,8 +51,7 @@ public class Spotify {
 
         while(!isDone){
             String input = scanner.nextLine();
-            //if input == valid option, do valid option
-            //maybe change to switch with numerated list?
+
             if(freeUser){
                 add();
             }
@@ -50,6 +80,9 @@ public class Spotify {
             }
     }
 
+    /**
+     * addSong adds a {@link Song} to {@link #songList}.
+     */
     private void addSong(){
         Song newSong = new Song();
         this.songList.add(newSong);
@@ -58,6 +91,9 @@ public class Spotify {
 
     //1.	Tilføj ny sang
 
+    /**
+     * removeSong removes a {@link Song} from {@link #songList}.
+     */
     private void removeSong(){
         System.out.println("Please enter the title of the song you wish to remove.");
         String input = scanner.nextLine();
@@ -71,6 +107,9 @@ public class Spotify {
     //2.	Fjern en sang
     //maybe remove by index too
 
+    /**
+     * showSongList shows {@link #songList} using toString for {@link Song}.
+     */
     private void showSongList(){
         for (int i = 0; i < songList.size(); i++) {
             System.out.println((i+1) + ": " +  songList.get(i));
@@ -78,6 +117,9 @@ public class Spotify {
     }
     //3.	Vis alle sang
 
+    /**
+     * Gets a String input with {@link #scanner} and searches for it in {@link #songList} then displays it using toString if found.
+     */
     private void search(){
         String input = this.scanner.nextLine();
         for (int i = 0; i < songList.size(); i++) {
@@ -89,6 +131,10 @@ public class Spotify {
         }
     }
     //4.	 Søg efter en sang
+
+    /**
+     * Searches for song like {@link #search()} the sets a new title for the found {@link Song}.
+     */
 
     private void editSong(){
         String input = this.scanner.nextLine();
@@ -109,6 +155,10 @@ public class Spotify {
     //increment isDone boolean
     //playsong???
     //print add if freeuser
+
+    /**
+     * add plays adds in every iteration of {@link #menu} if {@link #freeUser} is true.
+     */
     private void add(){
         System.out.println("AAAAADS!!");
     }
