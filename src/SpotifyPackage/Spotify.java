@@ -1,17 +1,19 @@
 package SpotifyPackage;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  * Spotify is a class that contains and modifies an {@link ArrayList} of {@link Song} objects. <br>
  * Has methods:<br>
- * {@link #Spotify(boolean)} is the constructor.<br>
+ * {@link #Spotify(boolean, String)} is the constructor.<br>
  * {@link #menu()} is the main body of the class, all other methods are run from here. <br>
  * Has attributes: <br>
  * {@link #songList} is an {@link ArrayList} that contains {@link Song} objects.<br>
  * {@link #freeUser} determines whether to use {@link #add()} method in {@link #menu} or not.<br>
- * {@link #scanner} is an object of the {@link Scanner} class used to get user inputs.
+ * {@link #scanner} is an object of the {@link Scanner} class used to get user inputs.<br>
+ * {@link #fileName} File path containing current list of songs
  */
 
 public class Spotify {
@@ -27,13 +29,35 @@ public class Spotify {
      * scanner is an object of the {@link Scanner} class.
      */
     Scanner scanner = new Scanner(System.in);
+    /**
+     * fileName is the String name of the file containing current list of songs
+     */
+    String fileName;
 
     /**
-     * constructor
-     * @param freeUser determines whether to play adds or not.
+     * constructor uses the fileName to run {@link #booter()} which loads a saved song list from a file.
+     * @param freeUser freeUser determines whether to play adds or not.
+     * @param fileName fileName is the path to a file containing the current list of songs as a String.
      */
-    public Spotify(boolean freeUser){
+    public Spotify(boolean freeUser, String fileName){
         this.freeUser = freeUser;
+        this.fileName = fileName;
+        booter();
+    }
+
+    /**
+     * booter adds songs from {@link #fileName} to {@link #songList} using {@link fileReader}
+     */
+    public void booter(){
+        fileReader r = new fileReader(this.fileName);
+
+        List<List<String>> storedFile = r.reader();
+        for (List<String> strings : storedFile) {
+            String title = strings.getFirst();
+            String genre = strings.getLast();
+            Song song = new Song(title, genre);
+            songList.add(song);
+        }
     }
 
     /**

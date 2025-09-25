@@ -6,6 +6,7 @@ import java.util.Scanner;
  * Song is a class used to make songs with title and genre.<br>
  * Has methods: <br>
  * {@link #Song} is a constructor. <br>
+ * {@link #Song(String, String)} is the constructor used when loading songs from file. <br>
  * {@link #getTitle()} returns {@link #title}. <br>
  * {@link #getGenre()} returns {@link #genre}. <br>
  * {@link #setTitle(String)} sets {@link #title}. <br>
@@ -47,6 +48,11 @@ public class Song {
         this.genre = validateGenre();
     }
 
+    /**
+     * constructor used when generating songs from a file using {@link fileReader}
+     * @param title String containing title of the song
+     * @param genre String containing genre of the song
+     */
     public Song(String title, String genre){
         this.title = title;
         this.genre = genre;
