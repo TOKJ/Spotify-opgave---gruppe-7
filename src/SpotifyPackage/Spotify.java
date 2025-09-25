@@ -61,13 +61,22 @@ public class Spotify {
     }
 
     /**
+     * closer saves the {@link #songList} to the file at {@link #fileName} using {@link fileReader}.
+     */
+    public void closer(){
+        fileWriter w = new fileWriter(this.fileName, this.songList);
+        w.fileMaker();
+        w.writer();
+    }
+
+    /**
      * Main body of the class which allows the user to pick different methods: <br>
      * {@link #addSong()} to add a song.<br>
      * {@link #removeSong()} to remove a song.<br>
      * {@link #showSongList()} to show {@link #songList} using toString overrides.<br>
      * {@link #search()} to search for a song by title.<br>
      * {@link #showMenu()} show the menu options. <br>
-     * or a method to end the program.
+     * or a method to end the program using {@link #closer()} to save the current {@link #songList}.
      */
     public void menu(){
         boolean isDone = false;
@@ -98,6 +107,7 @@ public class Spotify {
                 editSong();
                 continue;
             }if(input.equalsIgnoreCase("exit")){
+                closer();
                 isDone = true;
                 break;
             }else{

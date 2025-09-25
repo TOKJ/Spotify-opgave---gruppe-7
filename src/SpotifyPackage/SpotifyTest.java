@@ -2,7 +2,7 @@ package SpotifyPackage;
 
 public class SpotifyTest {
     public static void main(String[] args){
-        Spotify songs = new Spotify(false, "src/SpotifyPackage/songlist.csv");
+        Spotify songs = new Spotify(false, "songlist.csv");
         songs.menu();
     }
     //src/SpotifyPackage/songlist.csv
