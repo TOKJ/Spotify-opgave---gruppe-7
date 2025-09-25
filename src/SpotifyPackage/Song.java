@@ -41,7 +41,9 @@ public class Song {
      * Song is a constuctor. uses {@link #scanner} and {@link #validateGenre()} to construct an object from user inputs.
      */
     public Song(){
+        System.out.println("Please input the title of the song you wish to add.");
         this.title = scanner.nextLine();
+        System.out.println("Please input a valid genre for the song you are trying to add. ");
         this.genre = validateGenre();
     }
 
@@ -95,7 +97,7 @@ public class Song {
                 isDone = true;
 
             } else {
-                System.out.println("invalid");
+                System.out.println("You've input an invalid genre. ");
                 input = scanner.nextLine().toUpperCase();
             }
         }

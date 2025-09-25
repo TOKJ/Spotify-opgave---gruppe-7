@@ -42,14 +42,16 @@ public class Spotify {
      * {@link #removeSong()} to remove a song.<br>
      * {@link #showSongList()} to show {@link #songList} using toString overrides.<br>
      * {@link #search()} to search for a song by title.<br>
+     * {@link #showMenu()} show the menu options. <br>
      * or a method to end the program.
      */
     public void menu(){
         boolean isDone = false;
 
-        System.out.println("valid options");
+        System.out.println("Welcome to totally not a trademark issue!");
 
         while(!isDone){
+            showMenu();
             String input = scanner.nextLine();
 
             if(freeUser){
@@ -100,7 +102,7 @@ public class Spotify {
         try{
             songList.removeIf(song -> song.getTitle().equalsIgnoreCase(input));
             System.out.println(input + " has been removed.");
-        }catch (Exception NullPointerException){
+        }catch (NullPointerException e){
             System.out.println(input + " does not exist.");
         }
         }
@@ -111,9 +113,11 @@ public class Spotify {
      * showSongList shows {@link #songList} using toString for {@link Song}.
      */
     private void showSongList(){
+        System.out.println("Songs currently in list:");
         for (int i = 0; i < songList.size(); i++) {
             System.out.println((i+1) + ": " +  songList.get(i));
         }
+        System.out.println("-------------------------");
     }
     //3.	Vis alle sang
 
@@ -121,13 +125,19 @@ public class Spotify {
      * Gets a String input with {@link #scanner} and searches for it in {@link #songList} then displays it using toString if found.
      */
     private void search(){
+        System.out.println("Please write the title of the song you wish to find: ");
         String input = this.scanner.nextLine();
+        int found = 0;
         for (int i = 0; i < songList.size(); i++) {
             if (songList.get(i).getTitle().equalsIgnoreCase(input)){
                 System.out.println((i+1) + ": " + songList.get(i));
-            }else{
-                System.out.println("Title not found.");
+                found++;
             }
+        }
+        if(found == 0){
+            System.out.println("Title not found.");
+    }else{
+            System.out.println(found + " songs with matching title were found.");
         }
     }
     //4.	 Søg efter en sang
@@ -137,16 +147,37 @@ public class Spotify {
      */
 
     private void editSong(){
+        System.out.println("Please write the current title of the song you wish to edit. ");
         String input = this.scanner.nextLine();
+        int found = 0;
         for (int i = 0; i < songList.size(); i++) {
             if (songList.get(i).getTitle().equalsIgnoreCase(input)){
                 System.out.println((i+1) + ": " + songList.get(i));
+                System.out.println("Please write the new title you wish to name the song. ");
                 String newtitle = scanner.nextLine();
                 songList.get(i).setTitle(newtitle);
-            }else{
-                System.out.println("Title not found.");
+                found++;
             }
         }
+        if(found == 0){
+            System.out.println("Title not found.");
+        }else{
+            System.out.println(found + " songs with matching title were found.");
+        }
+    }
+
+    /**
+     * showMenu shows the options in {@link #menu()}
+     */
+
+    private void showMenu(){
+        System.out.println("\n\nvalid options:\n" +
+                "1. add a song 'add'\n" +
+                "2. remove a song 'remove \n" +
+                "3. show song list 'show'\n" +
+                "4. search for and display a song 'search'\n" +
+                "5. edit the title of a song 'edit'\n" +
+                "Exit the program 'exit'\n");
     }
     //5.	Rediger en sang
 
