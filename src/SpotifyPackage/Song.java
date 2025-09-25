@@ -47,6 +47,11 @@ public class Song {
         this.genre = validateGenre();
     }
 
+    public Song(String title, String genre){
+        this.title = title;
+        this.genre = genre;
+    }
+
     /**
      * getTitle returns the {@link #title} as a string.
      * @return {@link #title} as string.

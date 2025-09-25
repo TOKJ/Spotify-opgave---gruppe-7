@@ -180,13 +180,6 @@ public class Spotify {
                 "5. edit the title of a song 'edit'\n" +
                 "Exit the program 'exit'\n");
     }
-    //5.	Rediger en sang
-
-
-    //-	Afslut programmet
-    //increment isDone boolean
-    //playsong???
-    //print add if freeuser
 
     /**
      * add plays adds in every iteration of {@link #menu} if {@link #freeUser} is true.
