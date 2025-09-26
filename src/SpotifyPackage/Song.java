@@ -20,7 +20,7 @@ import java.util.Scanner;
  * {@link #scanner} is used for handling user inputs.
  */
 
-public class Song {
+public class Song implements Comparable<Song> {
     /**
      * title is a String containing the title of the song.
      */
@@ -122,6 +122,11 @@ public class Song {
     @Override
     public String toString(){
         return "Title: " + this.title + " Genre: " + this.genre;
+    }
+
+    @Override
+    public int compareTo(Song song){
+        return this.genre.compareTo(song.genre);
     }
 
 }

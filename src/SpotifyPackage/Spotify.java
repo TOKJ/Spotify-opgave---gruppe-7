@@ -1,6 +1,7 @@
 package SpotifyPackage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -105,7 +106,10 @@ public class Spotify {
             }if(input.equalsIgnoreCase("edit") || input.equalsIgnoreCase("5")){
                 editSong();
                 continue;
-            }if(input.equalsIgnoreCase("exit")){
+            }if(input.equalsIgnoreCase("sort") || input.equalsIgnoreCase("6")){
+                sort();
+                continue;
+            } if(input.equalsIgnoreCase("exit")){
                 closer();
                 break;
             }else{
@@ -209,10 +213,11 @@ public class Spotify {
                 
                 valid options:
                 1. add a song 'add'
-                2. remove a song 'remove\s
+                2. remove a song 'remove'
                 3. show song list 'show'
                 4. search for and display a song 'search'
                 5. edit the title of a song 'edit'
+                6. sort your playlist after genre 'sort'
                 Exit the program 'exit'
                 """);
     }
@@ -222,5 +227,9 @@ public class Spotify {
      */
     private void add(){
         System.out.println("AAAAADS!!");
+    }
+
+    private void sort(){
+        Collections.sort(songList);
     }
 }
