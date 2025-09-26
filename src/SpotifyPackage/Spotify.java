@@ -20,7 +20,7 @@ public class Spotify {
     /**
      * songList is an ArrayList of objects of the {@link Song} class.
      */
-    ArrayList<Song> songList = new ArrayList<Song>();
+    ArrayList<Song> songList = new ArrayList<>();
     /**
      * freeUser is a boolean that determines add usage.
      */
@@ -79,11 +79,10 @@ public class Spotify {
      * or a method to end the program using {@link #closer()} to save the current {@link #songList}.
      */
     public void menu(){
-        boolean isDone = false;
 
         System.out.println("Welcome to totally not a trademark issue!");
 
-        while(!isDone){
+        while(true){
             showMenu();
             String input = scanner.nextLine();
 
@@ -108,7 +107,6 @@ public class Spotify {
                 continue;
             }if(input.equalsIgnoreCase("exit")){
                 closer();
-                isDone = true;
                 break;
             }else{
                 System.out.println("that is not a valid option. ");
@@ -206,13 +204,17 @@ public class Spotify {
      */
 
     private void showMenu(){
-        System.out.println("\n\nvalid options:\n" +
-                "1. add a song 'add'\n" +
-                "2. remove a song 'remove \n" +
-                "3. show song list 'show'\n" +
-                "4. search for and display a song 'search'\n" +
-                "5. edit the title of a song 'edit'\n" +
-                "Exit the program 'exit'\n");
+        System.out.println("""
+                
+                
+                valid options:
+                1. add a song 'add'
+                2. remove a song 'remove\s
+                3. show song list 'show'
+                4. search for and display a song 'search'
+                5. edit the title of a song 'edit'
+                Exit the program 'exit'
+                """);
     }
 
     /**

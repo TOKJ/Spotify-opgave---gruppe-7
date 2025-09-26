@@ -36,7 +36,7 @@ public class fileReader {
 
     /**
      * reader uses {@link BufferedReader} to read the file found at {@link #fileName} then splits it into an ordered list using {@link #COMMA_DELIMITER}
-     * @return List&ltlist&ltString&gt&gt containing the names and genres found in read file.
+     * @return List&ltList&ltString&gt&gt containing the names and genres found in read file.
      */
     public List<List<String>> reader(){
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))){
